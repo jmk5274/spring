@@ -28,6 +28,4 @@ public class ApplicationJavaConfigT1 {
 		return new UserService(userDao());
 	}
 	
-	
-	
 }
