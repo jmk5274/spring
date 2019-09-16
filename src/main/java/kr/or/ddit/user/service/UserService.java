@@ -40,11 +40,11 @@ public class UserService implements IUserService {
 	@Override
 	public List<User> getUserList() {
 		logger.debug("getUserList()");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		return userDao.getUserList();
 	}
 
