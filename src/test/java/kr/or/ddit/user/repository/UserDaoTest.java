@@ -13,32 +13,19 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.or.ddit.common.model.Page;
+import kr.or.ddit.config.test.RootTestConfig;
 import kr.or.ddit.user.dao.IUserDao;
 import kr.or.ddit.user.model.User;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-		"classpath:kr/or/ddit/config/spring/context-root.xml", 
-		"classpath:kr/or/ddit/config/spring/context-datasource.xml",
-		"classpath:kr/or/ddit/config/spring/context-transaction.xml"})
-public class UserDaoTest {
+public class UserDaoTest extends RootTestConfig{
 	//userDao를 테스트하기 위해 필요한거
 	//db 연결, 트랜잭션, dao
 	@Resource(name = "userDao")
 	private IUserDao userDao;
 	private String userId = "brownTest1";
-	
-	@Before
-	public void setup() {
-		userDao.deleteUser(userId);
-	}
 	
 	//테스트에 공통적으로 사용한 자원을 해제
 	@After
@@ -104,7 +91,7 @@ public class UserDaoTest {
 		
 		/***Then***/
 		assertEquals(10, userList.size());
-		assertEquals("xuserid21", userList.get(0).getUserId());
+		assertEquals("xuserid22", userList.get(0).getUserId());
 	}
 	
 	@Test

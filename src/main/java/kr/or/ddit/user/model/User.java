@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSessionBindingListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 
@@ -17,6 +18,7 @@ public class User implements HttpSessionBindingListener{
 	private String userId;
 	private String pass;
 	private String alias;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reg_dt;
 	private String addr1;
 	private String addr2;
@@ -28,12 +30,12 @@ public class User implements HttpSessionBindingListener{
 	public User() {
 	}
 	
-	public User(String userId, String userNm, String alias, Date reg_dt_date, String addr1, String addr2,
+	public User(String userId, String userNm, String alias, Date reg_dt, String addr1, String addr2,
 			String zipcode, String pass, String filename, String realfilename) {
 		this.userNm = userNm;
 		this.userId = userId;
 		this.alias = alias;
-		this.reg_dt = reg_dt_date;
+		this.reg_dt = reg_dt;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 		this.zipcode = zipcode;
@@ -106,11 +108,6 @@ public class User implements HttpSessionBindingListener{
 		return reg_dt;
 	}
 	
-	public String getReg_dt_fmt() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return sdf.format(reg_dt);
-	}
-
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
 	}
