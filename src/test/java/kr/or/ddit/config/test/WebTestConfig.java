@@ -15,7 +15,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:kr/or/ddit/config/spring/servlet-context.xml")	//controller
 @WebAppConfiguration	//스프링 컨테이너를 구성할 web기반 application context로 구성
-public class WebTestConfig {
+public class WebTestConfig extends RootTestConfig{
 
 	//controller를 테스트하기 위해 필요한 것 2가지
 	//applicationContext : 스프링 컨테이너
