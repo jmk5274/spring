@@ -53,13 +53,14 @@ public class LprodController {
 	@RequestMapping(path = "lprodPagingList", method = RequestMethod.GET)
 	public String lprodPagingList(Page page, Model model) {
 		
-		page.setPagesize(5);
 		Map<String, Object> map = lprodService.pagingLprodList(page);
 		
 		model.addAttribute("pageVo", page);
 		model.addAllAttributes(map);
 //		model.addAttribute("lprodList",lprodList);
 		
-		return "lprod/lprodList";
+		logger.debug("paginationSize : {}", (Integer)map.get("paginationSize"));
+		
+		return "lprod/lprodPagingList";
 	}
 }

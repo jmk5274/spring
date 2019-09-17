@@ -82,7 +82,6 @@
 									</c:otherwise>
 								</c:choose>
 										</li>
-								
 								<c:forEach begin="1" end="${paginationSize }" var="page">
 									<c:choose>
 										<c:when test="${page == pageVo.page }">
