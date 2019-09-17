@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+@RequestMapping("hello/")
 @Controller
 public class HelloController {
 
-	@RequestMapping("hello/hello.do")
+	@RequestMapping("hello.do")
 	public String hello(Model model, HttpServletRequest request) {
 		
 		//기존에 request에 넣어던 속성을 스프링에서는
@@ -27,4 +27,5 @@ public class HelloController {
 		
 		return "hello/hello";
 	}
+
 }
