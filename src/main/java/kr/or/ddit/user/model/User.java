@@ -1,10 +1,10 @@
 package kr.or.ddit.user.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
+import javax.validation.constraints.NotNull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,7 @@ public class User implements HttpSessionBindingListener{
 	private static final Logger logger = LoggerFactory.getLogger(User.class);
 	private String userNm; // 사용자 이름
 	private String userId;
+	@NotNull
 	private String pass;
 	private String alias;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
