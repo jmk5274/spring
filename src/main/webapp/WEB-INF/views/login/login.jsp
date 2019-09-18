@@ -1,6 +1,6 @@
 <%@page import="java.util.Enumeration"%>
 <%@page import="kr.or.ddit.user.model.User"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +61,8 @@
   </head>
 
   <body>
-
+	userId = ${userId }<br>
+	alias = ${alias }
     <div class="container">
     <%
        HttpSession httpSession = request.getSession();
@@ -71,7 +72,7 @@
              String userId = request.getParameter("userId");
            if (userId == null) userId = "";
     %>
-       사용자 이름 : <%= userName %>
+<%--        사용자 이름 : <%= userName %> --%>
 
       <form id="frm" class="form-signin" action="${cp }/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
