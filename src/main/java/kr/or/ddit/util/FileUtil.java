@@ -1,9 +1,14 @@
 package kr.or.ddit.util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import kr.or.ddit.util.model.FileInfo;
 
@@ -17,7 +22,7 @@ public class FileUtil {
 		String extName = getExtension(originalFileName);
 		File file = new File(path + "\\" + uuidFileName + extName);
 		
-		FileInfo fileInfo = new FileInfo(file, extName, originalFileName);
+		FileInfo fileInfo = new FileInfo(file, originalFileName, extName);
 		
 		return fileInfo;
 	}
@@ -43,5 +48,5 @@ public class FileUtil {
 		
 		return extName;
 	}
-	
+
 }

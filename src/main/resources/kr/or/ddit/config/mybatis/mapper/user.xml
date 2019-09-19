@@ -38,7 +38,7 @@
   
   <insert id="insertUser" parameterType="user">
 	insert into users(userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode, filename, realfilename)
-    	values(#{userId}, #{userNm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename}, #{realfilename})
+    	values(#{userId}, #{userNm}, #{pass}, #{reg_dt}, #{alias}, #{addr1}, #{addr2}, #{zipcode}, #{filename, jdbcType=VARCHAR}, #{realfilename, jdbcType=VARCHAR})
   </insert>
   
 <!--   사용자삭제 -->
@@ -47,7 +47,7 @@
   </delete>
   
   <update id="modifyUser" parameterType="user">
-    update users set usernm=#{userNm}, alias=#{alias}, pass=#{pass}, realfilename=#{realfilename}, addr1=#{addr1}, addr2=#{addr2}, zipcode=#{zipcode}, filename=#{filename}
+    update users set usernm=#{userNm}, alias=#{alias}, pass=#{pass}, realfilename=#{realfilename, jdbcType=VARCHAR}, addr1=#{addr1}, addr2=#{addr2}, zipcode=#{zipcode}, filename=#{filename, jdbcType=VARCHAR}
     where userid=#{userId}
   </update>
 </mapper>
