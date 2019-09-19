@@ -149,6 +149,13 @@ public class UserControllerTest extends WebTestConfig{
 		assertEquals("user/modifyUser", mav.getViewName());
 	}
 	
+	/**
+	* Method : modifyUserTest
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @throws Exception
+	* Method 설명 : 사용자 정보 수정 테스트
+	*/
 	@Test
 	public void modifyUserTest() throws Exception {
 		File f = new File("src/test/resources/kr/or/ddit/test/brown.png");

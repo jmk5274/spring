@@ -171,6 +171,16 @@ public class UserController {
 		return "user/userForm";
 	}
 	
+	/**
+	* Method : userForm
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @param user
+	* @param result
+	* @param picture
+	* @return
+	* Method 설명 : 사용자 등록
+	*/
 	@PostMapping("userForm")
 	public String userForm(User user, BindingResult result, @RequestPart("picture") MultipartFile picture) {
 		
@@ -204,6 +214,15 @@ public class UserController {
 		}
 	}
 	
+	/**
+	* Method : modifyUserView
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @param model
+	* @param userId
+	* @return
+	* Method 설명 : 사용자 수정 화면 요청
+	*/
 	@GetMapping("modifyUser")
 	public String modifyUserView(Model model, String userId) {
 		
@@ -214,6 +233,16 @@ public class UserController {
 		return("user/modifyUser");
 	}
 	
+	/**
+	* Method : modifyUser
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @param user
+	* @param result
+	* @param picture
+	* @return
+	* Method 설명 : 사용자 수정
+	*/
 	@PostMapping("modifyUser")
 	public String modifyUser(User user, BindingResult result, @RequestPart("picture") MultipartFile picture) {
 		
@@ -245,8 +274,8 @@ public class UserController {
 			//forward
 			return "user/modifyUser?user="+user;
 		}
-		
 	}
+	
 	
 	
 }
