@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -276,6 +277,46 @@ public class UserController {
 		}
 	}
 	
+	/**
+	* Method : userPagingListAjax
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @param page
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 결과를 json형식으로 생성
+	*/
+	@RequestMapping(path = "userPagingListAjax", method = RequestMethod.GET)
+	public String userPagingListAjax(Page page, Model model) {
+		
+		Map<String, Object> map = userService.getUserPagingList(page);
+		
+		model.addAttribute("pageVo", page);
+		model.addAllAttributes(map);
+		
+		return "jsonView";
+	}
+	
+	@RequestMapping(path = "userPagingListAjaxView")
+	public String userPagingListAjaxView() {
+		return "user/userPagingListAjaxView";
+	}
+	
+	/**
+	* Method : userPagingHtmlListAjax
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @return
+	* Method 설명 : 사용자 페이징 리스트의 결과를 html로 생성한다(jsp)
+	*/
+	@RequestMapping(path = "userPagingHtmlListAjax")
+	public String userPagingHtmlListAjax(@RequestParam(defaultValue="1") int page, @RequestParam(defaultValue="10") int pagesize, Model model) {
+		Page pageVo = new Page(page, pagesize);
+		Map<String, Object> resultMap = userService.getUserPagingList(pageVo);
+		model.addAllAttributes(resultMap);
+		model.addAttribute("pageVo", pageVo);
+		return "user/userPagingHtmlListAjax";
+	}
 	
 	
 }

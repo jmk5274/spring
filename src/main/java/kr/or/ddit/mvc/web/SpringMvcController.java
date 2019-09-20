@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import kr.or.ddit.exception.NoFileException;
 import kr.or.ddit.mvc.model.Main;
@@ -245,4 +244,5 @@ public class SpringMvcController {
 		model.addAttribute("pictureName", pictureName);
 		return "fileDownloadView";
 	}
+	
 }

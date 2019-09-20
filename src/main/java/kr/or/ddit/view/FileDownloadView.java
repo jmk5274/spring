@@ -36,5 +36,4 @@ public class FileDownloadView extends AbstractView{
 		
 		fis.close();
 	}
-
 }
