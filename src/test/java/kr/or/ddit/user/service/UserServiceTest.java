@@ -14,7 +14,7 @@ import org.junit.After;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.config.test.RootTestConfig;
+import kr.or.ddit.config.spring.RootTestConfig;
 import kr.or.ddit.user.model.User;
 
 public class UserServiceTest extends RootTestConfig{

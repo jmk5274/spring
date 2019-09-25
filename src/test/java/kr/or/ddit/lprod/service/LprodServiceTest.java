@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kr.or.ddit.common.model.Page;
-import kr.or.ddit.config.test.RootTestConfig;
+import kr.or.ddit.config.spring.RootTestConfig;
 import kr.or.ddit.lprod.model.Lprod;
 
 public class LprodServiceTest extends RootTestConfig{

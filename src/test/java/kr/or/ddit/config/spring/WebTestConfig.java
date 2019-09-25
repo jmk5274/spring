@@ -1,4 +1,4 @@
-package kr.or.ddit.config.test;
+package kr.or.ddit.config.spring;
 
 import javax.annotation.Resource;
 
@@ -18,10 +18,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import kr.or.ddit.config.RootConfig;
+import kr.or.ddit.config.ServletConfig;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:kr/or/ddit/config/spring/servlet-context.xml")	//controller
+//@ContextConfiguration("classpath:kr/or/ddit/config/spring/servlet-context.xml")	//controller
+@ContextConfiguration(classes = {ServletConfig.class, RootConfig.class, DataSourceConfigTest.class})
 @WebAppConfiguration	//스프링 컨테이너를 구성할 web기반 application context로 구성
-public class WebTestConfig extends RootTestConfig{
+public class WebTestConfig {
 
 	//controller를 테스트하기 위해 필요한 것 2가지
 	//applicationContext : 스프링 컨테이너

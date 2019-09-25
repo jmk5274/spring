@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 
 import org.junit.Test;
 
-import kr.or.ddit.config.test.RootTestConfig;
+import kr.or.ddit.config.spring.RootTestConfig;
 import kr.or.ddit.prod.model.Prod;
 
 public class ProdDaoTest extends RootTestConfig{

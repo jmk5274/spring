@@ -15,7 +15,7 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.or.ddit.config.test.WebTestConfig;
+import kr.or.ddit.config.spring.WebTestConfig;
 
 public class UserControllerTest extends WebTestConfig{
 	

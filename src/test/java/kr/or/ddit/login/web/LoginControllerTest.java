@@ -16,7 +16,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.or.ddit.config.test.WebTestConfig;
+import kr.or.ddit.config.spring.WebTestConfig;
 import kr.or.ddit.user.model.User;
 
 public class LoginControllerTest extends WebTestConfig{

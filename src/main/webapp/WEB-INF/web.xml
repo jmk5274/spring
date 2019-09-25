@@ -11,17 +11,25 @@
   </welcome-file-list>
   <!-- spring root container (service, dao) -->
   <!-- needed for ContextLoaderListener -->
+		<!-- 스프링 프레임워크 사용자가 설정할 코드는 설정파일 위치 뿐이다 
+			 여러개의 설정파일을 구성 가능 (, 혹은 줄바꿈) -->
 	<context-param>
 		<!-- 초기화 파라미터 이름은 스프링 프레임워크에서 contextConfigLocation으로 고정 -->
 		<param-name>contextConfigLocation</param-name>
 		
-		<!-- 스프링 프레임워크 사용자가 설정할 코드는 설정파일 위치 뿐이다 
-			 여러개의 설정파일을 구성 가능 (, 혹은 줄바꿈) -->
+<!-- 		<param-value> -->
+<!-- 			classpath:kr/or/ddit/config/spring/context-root.xml -->
+<!-- 			classpath:kr/or/ddit/config/spring/context-datasource.xml -->
+<!-- 			classpath:kr/or/ddit/config/spring/context-transaction.xml -->
 		<param-value>
-			classpath:kr/or/ddit/config/spring/context-root.xml
-			classpath:kr/or/ddit/config/spring/context-datasource.xml
-			classpath:kr/or/ddit/config/spring/context-transaction.xml
+			kr.or.ddit.config.RootConfig
+			kr.or.ddit.config.DataSourceConfig
 		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
 	</context-param>
 
 	<!-- Bootstraps the root web application context before servlet initialization -->
@@ -40,10 +48,20 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:kr/or/ddit/config/spring/servlet-context.xml
-						 <!-- classpath:kr/or/ddit/config/spring/context-interceptors.xml -->
+			<param-value>
+<!-- 				kr.or.ddit.config.ServletConfig -->
+<!-- 				kr.or.ddit.config.InterceptorConfig -->
+					classpath:kr/or/ddit/config/spring/servlet-context.xml
+					classpath:kr/or/ddit/config/spring/context-interceptors.xml
 			</param-value>
 		</init-param>
+		
+<!-- 		<init-param> -->
+<!-- 			<param-name>contextClass</param-name> -->
+<!-- 			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value> -->
+<!-- 						 classpath:kr/or/ddit/config/spring/context-interceptors.xml -->
+<!-- 		</init-param> -->
+
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 

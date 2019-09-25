@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 
-	@RequestMapping("hello.do")
+	@RequestMapping("hello/hello.do")
 	public String hello(Model model, HttpServletRequest request, ApplicationContext application) {
 		
 		//기존에 request에 넣어던 속성을 스프링에서는

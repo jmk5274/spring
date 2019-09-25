@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class PerfomanceCheckInterceptor extends HandlerInterceptorAdapter{
+public class PerformanceCheckInterceptor extends HandlerInterceptorAdapter{
 
-	private static final Logger logger = LoggerFactory.getLogger(PerfomanceCheckInterceptor.class);
+	private static final Logger logger = LoggerFactory.getLogger(PerformanceCheckInterceptor.class);
 	
 	/**
 	* Method : preHandle

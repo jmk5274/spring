@@ -7,7 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.Test;
 
-import kr.or.ddit.config.test.WebTestConfig;
+import kr.or.ddit.config.spring.WebTestConfig;
 
 public class LprodControllerTest extends WebTestConfig{
 
@@ -39,7 +39,7 @@ public class LprodControllerTest extends WebTestConfig{
 		.andExpect(model().attributeExists("lprodList"))
 		.andExpect(model().attributeExists("paginationSize"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("lprod/lprodList"));
+		.andExpect(view().name("lprod/lprodPagingList"));
 	}
 
 }
