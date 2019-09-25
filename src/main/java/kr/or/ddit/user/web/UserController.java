@@ -17,10 +17,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.or.ddit.common.model.Page;
@@ -295,6 +297,25 @@ public class UserController {
 		model.addAllAttributes(map);
 		
 		return "jsonView";
+	}
+	
+	/**
+	* Method : userPagingListAjaxRequestBody
+	* 작성자 : JEON MIN GYU
+	* 변경이력 :
+	* @param page
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 결과를 json형식으로 생성
+	*/
+	@RequestMapping(path = "userPagingListAjaxRequestBody", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> userPagingListAjaxRequestBody(@RequestBody Page page, Model model) {
+		
+		Map<String, Object> resultMap = userService.getUserPagingList(page);
+		resultMap.put("pageVo", page);
+		
+		return resultMap;
 	}
 	
 	@RequestMapping(path = "userPagingListAjaxView")

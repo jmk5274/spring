@@ -50,11 +50,30 @@ $(document).ready(function(){
 	      $("#userId").val(dataValue);
 	      
 	      //form 태그이용 전송
-	      console.log("serialize : "  + $("#frm").serialize());
+// 	      console.log("serialize : "  + $("#frm").serialize());
 	      
 	      $("#frm").submit();
 	   });
 	});
+	
+function getUserListRequestBody(page, pagesize){
+	var param = {};
+	param.page = page;
+	param.pagesize = pagesize;
+	console.log("param : " + param);
+	$.ajax({
+		url : "${cp}/user/userPagingListAjaxRequestBody",
+		contentType : "application/json",
+		dataType : "json",
+		method : "post",
+		data : JSON.stringify(param),
+		success : function(data){
+			createUserListTbody(data.userList);
+			createPagination(data.pageVo, data.paginationSize);
+		}
+	});
+}	
+
 //ajax call을 통해 page, pagesize 해당하는 사용자 데이터를 가져온다.
 function getUserList(page, pagesize){
 	$.ajax({
